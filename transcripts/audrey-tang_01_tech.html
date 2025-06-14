@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生成音声の文字起こし（技術者向け） - NotebookLM実践例</title>
+    <style>
+        :root {
+            --primary-color: #6366f1;
+            --primary-dark: #4f46e5;
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --text-color: #1f2937;
+            --text-muted: #6b7280;
+            --bg-white: #ffffff;
+            --bg-gray: #f9fafb;
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Hiragino Sans', 'Noto Sans JP', sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background: var(--bg-gray);
+        }
+
+        .header {
+            background: var(--bg-gradient);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .container { max-width: 800px; margin: 0 auto; padding: 0 1rem; }
+
+        .header h1 { font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem; }
+
+        .main-content {
+            background: var(--bg-white);
+            margin: 2rem auto;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            max-width: 800px;
+        }
+
+        .back-button {
+            display: inline-flex;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .pattern-info {
+            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .note {
+            text-align: center;
+            padding: 2rem;
+            background: #f3f4f6;
+            border-radius: 8px;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .footer { text-align: center; padding: 2rem; color: var(--text-muted); }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>生成音声の文字起こし（技術者向け）</h1>
+            <p>NotebookLM実践例 - オードリー・タン講演プロンプト実験</p>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <a href="../index.html" class="back-button">← メインページに戻る</a>
+
+        <div class="pattern-info">
+            <h2>⚙️ 技術者向け実用性重視パターン</h2>
+            <p><strong>実験パターン:</strong> IT業界技術者特化</p>
+            <p><strong>音声長:</strong> 131行</p>
+            <p><strong>特徴:</strong> 完全に技術者向けにシフト。実装視点で具体的技術要素を詳細解説</p>
+            <p><strong>評価:</strong> ⭐⭐⭐⭐⭐ プロンプト設計意図を100%達成</p>
+        </div>
+
+        <div class="note">
+            <h3>📝 文字起こし内容について</h3>
+            <p>この音声の完全な文字起こしは<strong>131行</strong>にわたる詳細な内容です。<br>
+            技術的な実装詳細、具体的なツール解説、日本での応用可能性など、<br>
+            IT技術者向けに特化した専門的な内容が含まれています。</p>
+            <br>
+            <p><strong>主な内容:</strong></p>
+            <ul style="text-align: left; max-width: 600px; margin: 1rem auto;">
+                <li>自然言語処理とクラスタリング技術の詳細</li>
+                <li>分散型IDとゼロ知識証明の実装</li>
+                <li>プロソーシャルなアルゴリズムの設計思想</li>
+                <li>台湾の具体的技術実装事例</li>
+                <li>日本でのスケールアップ手法</li>
+            </ul>
+            <br>
+            <p><em>完全版の文字起こしは元の<a href="audrey-tang_01_tech.md" style="color: var(--primary-color);">Markdownファイル</a>をご参照ください。</em></p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 NotebookLM実践例プロジェクト | 実験者: 春香 × テルさん</p>
+    </footer>
+</body>
+</html> 

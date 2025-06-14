@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生成音声の文字起こし（学術向け） - NotebookLM実践例</title>
+    <style>
+        :root {
+            --primary-color: #6366f1;
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --text-color: #1f2937;
+            --text-muted: #6b7280;
+            --bg-white: #ffffff;
+            --bg-gray: #f9fafb;
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Hiragino Sans', 'Noto Sans JP', sans-serif; line-height: 1.7; color: var(--text-color); background: var(--bg-gray); }
+        .header { background: var(--bg-gradient); color: white; padding: 2rem 0; text-align: center; }
+        .container { max-width: 800px; margin: 0 auto; padding: 0 1rem; }
+        .header h1 { font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .main-content { background: var(--bg-white); margin: 2rem auto; padding: 2rem; border-radius: 12px; box-shadow: var(--shadow-md); max-width: 800px; }
+        .back-button { display: inline-flex; background: var(--primary-color); color: white; text-decoration: none; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600; margin-bottom: 2rem; }
+        .pattern-info { background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%); padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem; border-left: 4px solid var(--primary-color); }
+        .note { text-align: center; padding: 2rem; background: #f3f4f6; border-radius: 8px; color: var(--text-muted); font-style: italic; }
+        .footer { text-align: center; padding: 2rem; color: var(--text-muted); }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>生成音声の文字起こし（学術向け）</h1>
+            <p>NotebookLM実践例 - オードリー・タン講演プロンプト実験</p>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <a href="../index.html" class="back-button">← メインページに戻る</a>
+
+        <div class="pattern-info">
+            <h2>🎓 学術的観点×研究価値パターン</h2>
+            <p><strong>実験パターン:</strong> 学術・研究者向け</p>
+            <p><strong>音声長:</strong> 156行</p>
+            <p><strong>特徴:</strong> 理論的枠組みと学術的分析を重視。社会科学・政治学の視点</p>
+            <p><strong>評価:</strong> ⭐⭐⭐⭐ 学術的価値は高いが専門性の偏りあり</p>
+        </div>
+
+        <div class="note">
+            <h3>📝 文字起こし内容について</h3>
+            <p>この音声の完全な文字起こしは<strong>156行</strong>にわたる学術的な内容です。<br>
+            政治学、社会科学、制度設計の理論的枠組みを用いて、<br>
+            オードリー・タンの実践を学術的観点から分析しています。</p>
+            <br>
+            <p><strong>主な学術的要素:</strong></p>
+            <ul style="text-align: left; max-width: 600px; margin: 1rem auto;">
+                <li>ハーバーマス、ロールズ等の政治思想との比較分析</li>
+                <li>デジタル・デモクラシー研究の理論的位置づけ</li>
+                <li>制度設計論と参加型民主主義の枠組み</li>
+                <li>台湾民主化史との関連性の学術的考察</li>
+                <li>比較政治学的観点からの評価と課題</li>
+            </ul>
+            <br>
+            <p><em>完全版の文字起こしは元の<a href="audrey-tang_03_academic.md" style="color: var(--primary-color);">Markdownファイル</a>をご参照ください。</em></p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 NotebookLM実践例プロジェクト | 実験者: 春香 × テルさん</p>
+    </footer>
+</body>
+</html> 

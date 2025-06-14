@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生成音声の文字起こし（一般向け） - NotebookLM実践例</title>
+    <style>
+        :root {
+            --primary-color: #6366f1;
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --text-color: #1f2937;
+            --text-muted: #6b7280;
+            --bg-white: #ffffff;
+            --bg-gray: #f9fafb;
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Hiragino Sans', 'Noto Sans JP', sans-serif; line-height: 1.7; color: var(--text-color); background: var(--bg-gray); }
+        .header { background: var(--bg-gradient); color: white; padding: 2rem 0; text-align: center; }
+        .container { max-width: 800px; margin: 0 auto; padding: 0 1rem; }
+        .header h1 { font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .main-content { background: var(--bg-white); margin: 2rem auto; padding: 2rem; border-radius: 12px; box-shadow: var(--shadow-md); max-width: 800px; }
+        .back-button { display: inline-flex; background: var(--primary-color); color: white; text-decoration: none; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600; margin-bottom: 2rem; }
+        .pattern-info { background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%); padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem; border-left: 4px solid var(--primary-color); }
+        .note { text-align: center; padding: 2rem; background: #f3f4f6; border-radius: 8px; color: var(--text-muted); font-style: italic; }
+        .footer { text-align: center; padding: 2rem; color: var(--text-muted); }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>生成音声の文字起こし（一般向け）</h1>
+            <p>NotebookLM実践例 - オードリー・タン講演プロンプト実験</p>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <a href="../index.html" class="back-button">← メインページに戻る</a>
+
+        <div class="pattern-info">
+            <h2>🎪 理解促進×エンターテイメント融合パターン</h2>
+            <p><strong>実験パターン:</strong> 非専門の一般層向け</p>
+            <p><strong>音声長:</strong> 124行</p>
+            <p><strong>特徴:</strong> 親しみやすく、例え話豊富。わくわく感が自然に演出</p>
+            <p><strong>評価:</strong> ⭐⭐⭐⭐⭐ 非専門者への理解促進として大成功</p>
+        </div>
+
+        <div class="note">
+            <h3>📝 文字起こし内容について</h3>
+            <p>この音声の完全な文字起こしは<strong>124行</strong>にわたる分かりやすい内容です。<br>
+            例え話を豊富に使って、複雑な概念を身近な例で説明し、<br>
+            わくわく感を演出しながら理解促進を図っています。</p>
+            <br>
+            <p><strong>主な特徴:</strong></p>
+            <ul style="text-align: left; max-width: 600px; margin: 1rem auto;">
+                <li>車のハンドル、レゴブロック、メガネ等の秀逸な比喩</li>
+                <li>プルラリティ→「違いを力に変える」の分かりやすい言い換え</li>
+                <li>「面白い」「すごい」「ワクワクする」の自然な感情表現</li>
+                <li>専門用語を使わない親しみやすい解説</li>
+                <li>聞き手が楽しめるエンターテイメント性</li>
+            </ul>
+            <br>
+            <p><em>完全版の文字起こしは元の<a href="audrey-tang_02_general.md" style="color: var(--primary-color);">Markdownファイル</a>をご参照ください。</em></p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 NotebookLM実践例プロジェクト | 実験者: 春香 × テルさん</p>
+    </footer>
+</body>
+</html> 
