@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生成音声の文字起こし（ベースライン） - NotebookLM実践例</title>
+    <style>
+        :root {
+            --primary-color: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary-color: #ec4899;
+            --accent-color: #f59e0b;
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --text-color: #1f2937;
+            --text-muted: #6b7280;
+            --bg-white: #ffffff;
+            --bg-gray: #f9fafb;
+            --border-color: #e5e7eb;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Hiragino Sans', 'Noto Sans JP', sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background: var(--bg-gray);
+        }
+
+        .header {
+            background: var(--bg-gradient);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .main-content {
+            background: var(--bg-white);
+            margin: 2rem auto;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            max-width: 800px;
+        }
+
+        .pattern-info {
+            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .pattern-info h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .pattern-info p {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .transcript-content {
+            line-height: 1.8;
+        }
+
+        .speaker-male {
+            font-weight: 600;
+            color: #2563eb;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .speaker-female {
+            font-weight: 600;
+            color: #dc2626;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .dialogue {
+            margin-bottom: 1rem;
+            padding-left: 1rem;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+        }
+
+        .back-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+            
+            .header h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>生成音声の文字起こし（ベースライン）</h1>
+            <p>NotebookLM実践例 - オードリー・タン講演プロンプト実験</p>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <a href="../index.html" class="back-button">
+            ← メインページに戻る
+        </a>
+
+        <div class="pattern-info">
+            <h2>📊 ベースライン（プロンプトなし）</h2>
+            <p><strong>実験パターン:</strong> ベースライン（プロンプトなし）</p>
+            <p><strong>音声長:</strong> 177行（全パターン中最長）</p>
+            <p><strong>特徴:</strong> 最もバランスの良い客観的解説。教育番組的で論理的構成</p>
+        </div>
+
+        <div class="transcript-content">
+            <h3>🎧 生成音声文字起こし</h3>
+            
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">あの、今回はオードリー・タンさんのインタビュー記録からですね、テクノロジーによる民主主義のアップデートというテーマで、え、少し掘り下げてみたいと思います。</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">はい。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">やっぱり現代の民主主義って、どうしても分断っていう課題がありますけど、これをテクノロジー、ま、AIとか新しいSNSとかでどう乗り越えて合意形成していくのか。</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">うんうん。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">台湾の実践例をヒントに考えていきたいなと。特に、民主主義はアップデート可能なテクノロジーだっていう見方、これ面白いですよね。</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">ええ、そこがまあ今回のポイントですよね。従来の多数決が生む、あの、51対49の問題。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">ああ、はいはい。</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">これが、なんていうか、民主主義のバグとも言えるわけで。で、タンさんが言うプルラリティ、つまり多言性っていう考え方が、このバグを修正する鍵になる、と。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">なるほど、バグですか。まずその、現状の課題ですけど、多数決だと本当にわずかな差、51対49でも、負けた49%の側はやっぱり不満を持ちやすい？</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">そうなんです。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">それで社会が分断しちゃう、不安定になるっていう。</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">その通りで、49%の人たちからすると、その決定プロセス自体がこう、正当なものだって感じにくいんですよね。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">うーん、確かに。</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">時間が経つにつれてどんどん不信感とか対立が深まっちゃう。これが今の民主主義の、ま、大きな課題の1つですね。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">その49%の不満を、具体的にはどう解消するんでしょうか？プルラリティっていうのは。</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">えっとですね、プルラリティは、単にA案とB案の間を取るとかじゃなくて、</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">はい。</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">いろんな意見の中に、実は隠れている共通の価値観。タンさんの言葉だとアンコモン・グラウンド、つまり異質な共通点ってやつですね。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">へえー。異質な共通点。</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">ええ。これをAIとかを使って見つけ出して、それを土台に新しい合意を作っていこうっていうアプローチなんです。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">なるほど。対立してるように見えても、意外なところで繋がってたりするかもしれないと。</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">あれがすごく分かりやすい例で。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">ああ、ありましたね。</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">単純な賛成反対じゃなくって、個人の結婚する権利と、伝統的な家の制度。この2つを分けて考えたんですね。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">ふむふむ。</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">結果として、個人の権利はちゃんと法的に保障しましょうと。でも、それが自動的に伝統的な家における親族関係の変更を強制するわけじゃないですよっていう形で。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">ああー、なるほど。分離したんですね。</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">ええ。双方の価値観を、まあ、ある意味尊重する道を見つけたわけです。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">それを可能にしたのがテクノロジーでもあると。ポリスみたいなツールですか？</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">そうです、そうです。ポリスっていうのは、あの、コメント欄みたいに返信し合って議論を深めるタイプじゃなくて、</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">はい。</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">出てきた意見に対して賛成か反対か、意思表示するだけ。すごくシンプルなんです。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">へえ。</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">で、AIがその意見の分布をこう、地図みたいに可視化してくれる。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">可視化。</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">さらに、意見が違うグループの間でも、これなら賛成できるっていう共通の意見、つまり架け橋になるような意見を見つけて推奨してくれるんです。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">ああ、それは分断を防げそうですね。</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">ええ。だから分断じゃなくって、むしろ合意形成に向かわせる。台湾のUber規制の問題もこれで解決の糸口を見つけたと聞いてます。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">今のSNSってどうしてもエンゲージメント重視で、なんか分断を煽ってるんじゃないかって言われますけど、それとは逆の発想ですね。</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">まさに。多くのSNSは、ユーザーをとにかく長く滞在させたり反応させたりする包有型のアルゴリズムが中心で、</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">うん。</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">結果的にちょっと過激な意見とか対立が目立ちやすくなっちゃう側面がある。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">うん。</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">これを、もっとプロソーシャル、つまり社会全体にとって良い方向に向かうように設計し直そうっていう動きがあるんです。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">具体的にはどんなものが？</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">例えば、X、旧Twitterのコミュニティノート。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">はい。</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">あれは、いろんな立場の人から、これは有益だって支持される注釈が上に来る仕組みですよね。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">ああ、ありますね。</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">あれもポリス的な考え方に近いと言えるかもしれません。あとはプラットフォーム間の相互運用性。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">相互運用性？</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">ええ。つまり、SNSを乗り換えてもフォロワーとかこれまでの繋がりを失わないようにしようと。アメリカのユタ州とかでそういう法律もでき始めてます。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">へえー。</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">それから分散型デジタルID。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">はい。</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">これは、自分の情報は自分で管理して、例えば成人であることだけを証明して誕生日は隠す、みたいに。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">ああ、必要な情報だけ開示する。</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">そうです。プライバシーを守りつつ本人証明もできる技術で、もっと安全なオンライン対話の基盤になるんじゃないかって期待されてます。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">あの、面白いなと思ったのが、台湾って民主主義が本格化したのって1996年の総統直接選挙でしたよね。</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">ええ。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">それって、Web、インターネットが普及し始めた頃とほぼ同じ時期っていう。</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">そうなんですよ。それが結構大きいかもしれなくて、民主主義って昔から決まってる固定的な制度じゃないんだと。社会技術なんだから改善したり更新したりできるものなんだっていう考え方が、まあ、受け入れられやすい土壌があるのかもしれないですね。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">まるでソフトウェアみたいに、バージョン2.0、3.0って。</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">そんなイメージです。</div>
+
+            <!-- 長い文字起こしなので、簡潔にするため一部のみ表示 -->
+            <div style="text-align: center; margin: 2rem 0; padding: 1rem; background: #f3f4f6; border-radius: 8px; color: #6b7280;">
+                ... 文字起こし内容は177行にわたります ...<br>
+                <em>完全版は元のMarkdownファイルをご参照ください</em>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 NotebookLM実践例プロジェクト | 実験者: 春香 × テルさん</p>
+    </footer>
+</body>
+</html> 
