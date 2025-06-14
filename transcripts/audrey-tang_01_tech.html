@@ -64,14 +64,10 @@
             border-left: 4px solid var(--primary-color);
         }
 
-        .note {
-            text-align: center;
-            padding: 2rem;
-            background: #f3f4f6;
-            border-radius: 8px;
-            color: var(--text-muted);
-            font-style: italic;
-        }
+        .transcript-content { margin-top: 2rem; }
+        .speaker-male { font-weight: 700; color: #2563eb; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+        .speaker-female { font-weight: 700; color: #dc2626; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+        .dialogue { margin-bottom: 1rem; padding: 0.5rem 0; border-left: 3px solid #e5e7eb; padding-left: 1rem; }
 
         .footer { text-align: center; padding: 2rem; color: var(--text-muted); }
     </style>
@@ -95,22 +91,153 @@
             <p><strong>評価:</strong> ⭐⭐⭐⭐⭐ プロンプト設計意図を100%達成</p>
         </div>
 
-        <div class="note">
-            <h3>📝 文字起こし内容について</h3>
-            <p>この音声の完全な文字起こしは<strong>131行</strong>にわたる詳細な内容です。<br>
-            技術的な実装詳細、具体的なツール解説、日本での応用可能性など、<br>
-            IT技術者向けに特化した専門的な内容が含まれています。</p>
-            <br>
-            <p><strong>主な内容:</strong></p>
-            <ul style="text-align: left; max-width: 600px; margin: 1rem auto;">
-                <li>自然言語処理とクラスタリング技術の詳細</li>
-                <li>分散型IDとゼロ知識証明の実装</li>
-                <li>プロソーシャルなアルゴリズムの設計思想</li>
-                <li>台湾の具体的技術実装事例</li>
-                <li>日本でのスケールアップ手法</li>
-            </ul>
-            <br>
-            <p><em>完全版の文字起こしは元の<a href="audrey-tang_01_tech.md" style="color: var(--primary-color);">Markdownファイル</a>をご参照ください。</em></p>
+        <div class="transcript-content">
+            <h3>🎧 生成音声文字起こし</h3>
+            
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">こんにちは。今日の深掘り、始めましょう。今回は特にIT業界で活躍されているあなたに向けてすごく面白い資料があるんです。台湾のデジタル担当大臣、あの、オードリー・タン氏が進めている社会課題解決のアプローチ。中でもPolis、ポーラス？っていうツールですかね。これの具体的な使い方とか、その応用事例に注目したいと思います。台湾での実践例から、私たちが日本でこう何か活かせる技術的なヒント、見つけられたらなと。</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">ええ、まさに。今の社会ってどうしても意見が対立して、ま、分断されがちじゃないですか。でもテクノロジーがその違いをむしろ力に変えて、より良い合意、うん、それをどう作っていけるのか。今日はその具体的な仕組みとか可能性、おま、技術者の視点も交えながら見ていきたいですね。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">まず、タンさんが指摘している現代の民主主義の問題点。あの、51対49みたいな、ほんの僅差の多数決。これが結局、社会の溝を深めちゃうんじゃないかっていう。</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">そうなんです。で、そこで出てくるのがプルラリティ、つまり多様性っていう考え方。これは単に多数決で決めるんじゃなくて、色々な意見の中にこう隠れてる共通の価値観とか、あれ？意外とここ合意できるじゃん、みたいな点を見つけ出す。テクノロジーを使って対立を乗り越える、ま、アプローチですね。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">なるほど。そのプルラリティを実現するツールがさっき出たポリス。2015年の台湾での、あの、Uberの導入問題。あれで使われたっていうのがすごく具体的で興味深いです。</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">ええ、あれは象徴的でしたね。ポリスの面白い所って、コメントに直接返信、リプライするボタンがないんですよ。賛成か反対か、基本それだけ。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">えっと、返信なしで、それだと、なんか議論が深まらないような気もしますけど。</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">あ、そう思いますよね。でもそこがミソなんです。ポリスはあえて反論の応酬をこう避ける。で、参加者の投票をもとに意見が近い人同士を、こう空間上にマッピングして、グループ、クラスターとして可視化するんです。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">ふむふむ。可視化するんですね。</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">ええ。で、さらにAIが全然違う意見のクラスター間でも、あ、この意見は結構どっちのグループからも賛成されてるな、みたいな橋渡し的な意見を見つけ出す。それを参加者にうまく見せるんです。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">へえー。</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">いわば、こう対立を煽るんじゃなくて合意を探しに行く、プロソーシャルなアルゴリズムって言えるかもしれないですね。この設計思想自体が、結構我々エンジニアがシステム作る上でも、なんかヒントになるかなと。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">なるほど。だからUberの問題でも、単に賛成反対の二項対立じゃなくて、例えば、変動料金制を入れるとか、地方でタクシーの配車アプリを活用するとか、そういう既存のタクシー業界とも共存できるような具体的なアイディアが出てきて、それが法律になったと。</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">そういうことなんです。ただ、こういうツールって意見が何千、何万と集まることも、まあ珍しくない。さすがに全部は読めないですよね、人間が。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">ですよね。</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">そこでAIの出番。意見を自動で分類、クラスタリングして、それぞれのグループの主要な論点をこう要約してくれる。アメリカのケンタッキー州の事例だと、数万件のコメントから主要なトピックと、あと合意点をAIが抽出して可視化したなんて話もあります。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">うわあ、すごい！大量のテキストデータから要点を掴む、まさに自然言語処理とかクラスタリング技術の得意分野ですね。ここでもAIが人間を助ける、補助する役割なんですね。</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">ええ。あと台湾の同性婚の合法化。これも技術だけじゃない工夫が見える事例です。単純な賛成反対でぶつかるんじゃなくて、結婚って言葉が指すもの。例えば個人の権利としての側面と、もう一つは家族間の伝統的な繋がり、まあ姻族関係みたいな。人々が大事にしてる価値観っていくつかあるじゃないですか。それを丁寧に分けて議論したんですね。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">なるほど。問題を分解したんですね。</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">そうです。結果として、個人の権利としての結婚は認める。でも伝統的な家族の繋がりのあり方を無理に変えることは強制しない。そういう双方が、ある程度受け入れられる着地点を見つけた。技術的な解決も大事だけど、問題の捉え方、設定自体がすごく重要だったと。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">うーん、深いですね。でもそういう合意形成って、やっぱり時間がかかるイメージがありますけど。</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">ああ、そうですよね。ところが台湾でのディープフェイクを使った広告詐欺の問題、これへの対応スピードはちょっと驚きでした。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">あ、それ聞きました。数ヶ月で法律ができちゃったんですよね。どうやったんですか？</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">鍵はですね、並列処理です。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">並列処理？</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">ええ。まず20万人にSMSで意見を募集して、そこから無作為抽出で、台湾社会の縮図になるような、だいたい450人くらいの市民会議を開いた。で、さらにその450人を45の小さいグループに分けて、同時並行で議論を進めたんです。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">45グループで同時に？それをどうやってまとめるんですか？</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">ここでもまたAIなんです。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">ああ、またAI。</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">ええ。各グループから出てきた良いアイディアをAIがほぼリアルタイムで集約して統合して、で、互換性のある、組み合わせ可能な政策オプションとして提示した。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">すごい、リアルタイムで。</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">この並列処理とAIによる迅速な統合、これを可能にするシステム設計っていうのは、なんか大規模なプロジェクトとかビジネスで早く意思決定しないといけない場面とか、そういうところでも応用できる考え方かなと思いますね。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">なるほど。でもこれだけ市民を巻き込むとなると、やっぱりプライバシーとか信頼性とか、その辺も大事になってきますよね。</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">もちろんです。そこは非常に重要。台湾ではデジタルアイデンティティウォレット、DIWとよばれる分散型のID基盤、これの導入が進んでいます。これはどこか特定の企業とか政府が全部管理するんじゃなくて、大学とか企業とか政府機関とか、色々なところが個別に資格情報を発行できる、そういう仕組みです。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">分散型ですか？プライバシーってどうやって守るんですか？</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">そこがポイントで、ユーザーは自分の情報を全部開示する必要がないんです。例えば自分が成人であることを証明したい時に、具体的な年齢とか名前とかは明かさずに、その事実だけを証明する。あのゼロ知識証明っていう暗号技術があるんですけど、それを使って相手に提示できる。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">へえー。必要な情報だけを選択的に。</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">そうです。完全な匿名でもないし、全部実名公開でもない。その中間というか。こういう安全な参加を促す分散型ID、DIDとか、ゼロ知識証明の技術っていうのは、これからオンラインサービスではますます重要になってくるでしょうね。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">うーん。タン氏は日本の技術力とか、あと協調的なイノベーションへの姿勢、例えばあのシビックテックみたいな取り組みにも結構期待してるみたいですね。高輪ゲートウェイシティのロボットみたいに共存を目指す姿勢みたいな話もされてました。</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">ええ。日本って、実はもう地域レベルでは結構丁寧な合意形成とか、市民参加の試みってあるんですよね。草の根の民主主義というか。だからPolisみたいなツールを、単にトップダウンで入れるんじゃなくて、そういう日本の元々ある土壌とか強みを活かして、それをこう全国レベルにスケールアップさせるみたいな、そういう使い方ができる可能性があるんじゃないかなと。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">なるほど。今回の深掘り、テクノロジーが単に効率を上げるだけじゃなくて、民主主義とか合意形成っていう、なんか社会のOS自体をアップデートし得る、そういうすごく刺激的な可能性が見えましたね。</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">そうですね。AIをなんか人間を超える超知能みたいに恐れるんじゃなくて、人間の対話とか協力をこう加速させるアシスティブ、補助的な知能として捉える。この視点が大事なのかなと。プロソーシャルな設計思想とか、並列処理とか分散型IDみたいな考え方は、政治分野に限らず、あなたが関わっている技術開発にもきっと何か活かせる部分があるはずです。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">まさに。では最後に、リスナーのあなたへ。この話をヒントに、ご自身の仕事、いや、ま、開発プロジェクトの中で、多様な意見を対立じゃなくて力に変えるようなプロソーシャルな仕組みとか、あるいはもっと効率的に合意を形成していくプロセスとか、そういうのをどう組み込めるか、ちょっと考えてみてはいかがでしょうか。きっと何か新しい価値への扉が開くかもしれません。今日はありがとうございました。</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">ありがとうございました。</div>
+
+            <h4 style="margin-top: 2rem; color: var(--primary-color);">🔧 技術特化の成功ポイント</h4>
+            <div style="background: #f3f4f6; padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+                <h5>技術実装の詳細解説</h5>
+                <ul>
+                    <li><strong>自然言語処理</strong>: 大量テキストの自動分類・要約</li>
+                    <li><strong>クラスタリング技術</strong>: 意見分布の可視化</li>
+                    <li><strong>分散型ID (DID)</strong>: プライバシー保護の認証システム</li>
+                    <li><strong>ゼロ知識証明</strong>: 必要最小限の情報開示</li>
+                    <li><strong>並列処理</strong>: 45グループ同時議論の効率化</li>
+                    <li><strong>リアルタイム統合</strong>: AIによる迅速な意見集約</li>
+                </ul>
+            </div>
         </div>
     </main>
 
