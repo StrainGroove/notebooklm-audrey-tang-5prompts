@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NotebookLM実践例: オードリー・タン講演の5パターンプロンプト設計</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="hero-section">
+        <div class="container">
+            <h1 class="hero-title">🎯 NotebookLM実践例</h1>
+            <h2 class="hero-subtitle">オードリー・タン講演の5パターンプロンプト設計</h2>
+            <p class="hero-description">
+                同一ソースに対して5つの異なるアプローチでプロンプトを設計し、<br>
+                生成される音声の違いを比較検証する実験結果
+            </p>
+        </div>
+    </header>
+
+    <nav class="navigation">
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="#overview">実験概要</a></li>
+                <li><a href="#baseline">ベースライン</a></li>
+                <li><a href="#patterns">5パターン</a></li>
+                <li><a href="#analysis">実験分析</a></li>
+                <li><a href="#learning">学習ポイント</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            
+            <!-- 実験概要 -->
+            <section id="overview" class="section">
+                <h2 class="section-title">🎯 実験概要</h2>
+                <div class="overview-grid">
+                    <div class="overview-item">
+                        <h3>実験目的</h3>
+                        <p>NotebookLMで体系化したプロンプト設計手法を、実際のコンテンツ（オードリー・タン氏講演）で実践検証する</p>
+                    </div>
+                    <div class="overview-item">
+                        <h3>実験対象</h3>
+                        <p>台湾のデジタル担当政務委員オードリー・タン氏の講演動画概要</p>
+                        <ul>
+                            <li><strong>テーマ:</strong> 技術による民主主義の刷新</li>
+                            <li><strong>キーワード:</strong> プルラリティ、ポーラス、分散型デジタルアイデンティティ、合意形成</li>
+                            <li><strong>難易度:</strong> 高（政治×技術×社会学の複合領域）</li>
+                        </ul>
+                    </div>
+                    <div class="overview-item">
+                        <h3>実験設計</h3>
+                        <p>同一ソースに対して5つの異なるアプローチでプロンプトを設計し、生成される音声の違いを比較検証</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ベースライン -->
+            <section id="baseline" class="section">
+                <h2 class="section-title">📊 ベースライン（プロンプトなし）</h2>
+                <div class="pattern-card baseline">
+                    <div class="pattern-header">
+                        <h3>🎧 実験結果</h3>
+                        <span class="status-badge completed">完了</span>
+                    </div>
+                    <div class="pattern-content">
+                        <div class="audio-section">
+                            <a href="https://youtu.be/QkJxiek0R1c" class="audio-btn" target="_blank">
+                                🎵 実際の音声を聴く
+                            </a>
+                        </div>
+                        <div class="results-grid">
+                            <div class="result-item">
+                                <strong>印象・特徴:</strong> 最もバランスの良い客観的解説。教育番組的で論理的構成
+                            </div>
+                            <div class="result-item">
+                                <strong>長さ:</strong> 177行（全パターン中最長）
+                            </div>
+                            <div class="result-item">
+                                <strong>専門用語の扱い:</strong> 「プルラリティ」「ポリス」等を自然に使用、学術的で正確
+                            </div>
+                            <div class="result-item">
+                                <strong>構成特徴:</strong> 問題提起→台湾事例詳細→技術解説→展望→聴取者への問いかけ
+                            </div>
+                            <div class="result-item">
+                                <strong>評価:</strong> 中立的で教育的価値が高い。プロンプト効果測定のベースラインとして最適
+                            </div>
+                        </div>
+                        <div class="transcript-section">
+                            <a href="transcripts/audrey-tang_00_baseline.md" class="transcript-btn">
+                                📄 詳細文字起こし（ベースライン）
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5パターン -->
+            <section id="patterns" class="section">
+                <h2 class="section-title">🎪 プロンプト設計実例 & 実験結果</h2>
+                
+                <!-- パターン1: 技術者向け -->
+                <div class="pattern-card">
+                    <div class="pattern-header">
+                        <h3>1️⃣ 技術者向け実用性重視パターン</h3>
+                        <span class="status-badge completed">完了</span>
+                    </div>
+                    <div class="pattern-content">
+                        <div class="design-philosophy">
+                            <h4>プロンプト設計思想</h4>
+                            <ul>
+                                <li><strong>ターゲット:</strong> IT業界技術者</li>
+                                <li><strong>焦点:</strong> 具体的技術実装とツール</li>
+                                <li><strong>期待効果:</strong> 日本での応用可能性の発見</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="prompt-section">
+                            <h4>実際のプロンプト</h4>
+                            <div class="prompt-text">
+                                IT業界で働く技術者に向けて、オードリー・タン氏が紹介している台湾の具体的な技術実装（ポーラス等のツール）と、それがどのように現実の政治・社会課題解決に活用されているかに焦点を当てて説明してください。特に、私たちが日本で応用できる技術的なヒントがあれば強調してください。
+                            </div>
+                        </div>
+
+                        <div class="audio-section">
+                            <a href="https://youtu.be/LXGNtkjpMik" class="audio-btn" target="_blank">
+                                🎵 実際の音声を聴く
+                            </a>
+                        </div>
+
+                        <div class="results-grid">
+                            <div class="result-item">
+                                <strong>印象・特徴:</strong> 完全に技術者向けにシフト。実装視点で具体的技術要素を詳細解説
+                            </div>
+                            <div class="result-item">
+                                <strong>技術詳細の深度:</strong> 極めて高い（自然言語処理、クラスタリング、分散型ID、ゼロ知識証明、並列処理）
+                            </div>
+                            <div class="result-item">
+                                <strong>日本応用への言及:</strong> プロンプト通り強く反映「地域レベルの合意形成を全国レベルにスケールアップ」
+                            </div>
+                            <div class="result-item">
+                                <strong>専門用語密度:</strong> 非常に高い（プロソーシャルなアルゴリズム、アシスティブインテリジェンス等）
+                            </div>
+                            <div class="result-item">
+                                <strong>評価:</strong> ⭐⭐⭐⭐⭐ プロンプト設計意図を100%達成。技術者が実際に活用できる実装レベルの内容
+                            </div>
+                        </div>
+
+                        <div class="transcript-section">
+                            <a href="transcripts/audrey-tang_01_tech.md" class="transcript-btn">
+                                📄 詳細文字起こし（技術者向け）
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- パターン2: 一般向け -->
+                <div class="pattern-card">
+                    <div class="pattern-header">
+                        <h3>2️⃣ 理解促進×エンターテイメント融合パターン</h3>
+                        <span class="status-badge completed">完了</span>
+                    </div>
+                    <div class="pattern-content">
+                        <div class="design-philosophy">
+                            <h4>プロンプト設計思想</h4>
+                            <ul>
+                                <li><strong>ターゲット:</strong> 非専門の一般層</li>
+                                <li><strong>焦点:</strong> 難解概念の分かりやすい解説</li>
+                                <li><strong>期待効果:</strong> 専門知識のバリア除去</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="prompt-section">
+                            <h4>実際のプロンプト</h4>
+                            <div class="prompt-text">
+                                政治や技術の専門知識があまりない人に向けて、オードリー・タン氏の「技術で民主主義を良くする」というアイデアを、身近な例え話をたくさん使いながら、わくわくする感じで紹介してください。特に「プルラリティ」という新しい概念について、分かりやすく噛み砕いて説明してください。
+                            </div>
+                        </div>
+
+                        <div class="audio-section">
+                            <a href="https://youtu.be/LlmJ8XZNyKM" class="audio-btn" target="_blank">
+                                🎵 実際の音声を聴く
+                            </a>
+                        </div>
+
+                        <div class="results-grid">
+                            <div class="result-item">
+                                <strong>印象・特徴:</strong> 親しみやすく、例え話豊富。わくわく感が自然に演出
+                            </div>
+                            <div class="result-item">
+                                <strong>例え話の使用度:</strong> 極めて高い（車のハンドル、レゴブロック、メガネ等の秀逸な比喩）
+                            </div>
+                            <div class="result-item">
+                                <strong>わくわく感の演出:</strong> プロンプト通り完璧実現「面白い」「すごい」「ワクワクする」
+                            </div>
+                            <div class="result-item">
+                                <strong>専門用語の扱い:</strong> 丁寧な言い換え（プルラリティ→「違いを力に変える」）
+                            </div>
+                            <div class="result-item">
+                                <strong>評価:</strong> ⭐⭐⭐⭐⭐ 非専門者への理解促進として大成功。エンターテイメント性も確保
+                            </div>
+                        </div>
+
+                        <div class="transcript-section">
+                            <a href="transcripts/audrey-tang_02_general.md" class="transcript-btn">
+                                📄 詳細文字起こし（一般向け）
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- パターン3: 学術向け -->
+                <div class="pattern-card">
+                    <div class="pattern-header">
+                        <h3>3️⃣ 議論・考察重視パターン</h3>
+                        <span class="status-badge completed">完了</span>
+                    </div>
+                    <div class="pattern-content">
+                        <div class="design-philosophy">
+                            <h4>プロンプト設計思想</h4>
+                            <ul>
+                                <li><strong>ターゲット:</strong> 学術的興味層</li>
+                                <li><strong>焦点:</strong> 多角的な視点と批判的思考</li>
+                                <li><strong>期待効果:</strong> 深い理解と議論の促進</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="prompt-section">
+                            <h4>実際のプロンプト</h4>
+                            <div class="prompt-text">
+                                社会学や政治学に興味がある大学生に向けて、オードリー・タン氏が提起している「技術と民主主義」の関係について、賛成・反対両方の視点から考察しながら議論してください。特に日本の現状と比較して、どんな課題や可能性があるかを深掘りしてください。
+                            </div>
+                        </div>
+
+                        <div class="audio-section">
+                            <a href="https://youtu.be/zV_LTcatf-M" class="audio-btn" target="_blank">
+                                🎵 実際の音声を聴く
+                            </a>
+                        </div>
+
+                        <div class="results-grid">
+                            <div class="result-item">
+                                <strong>印象・特徴:</strong> 学術的で批判的思考を促す構成。大学生向けの知的な議論展開
+                            </div>
+                            <div class="result-item">
+                                <strong>多角的視点の提示:</strong> プロンプト指定の「賛成・反対両方の視点」が効果的に実現
+                            </div>
+                            <div class="result-item">
+                                <strong>日本比較の詳細度:</strong> 高い（デジタルデバイド、プライバシー、高齢化等の課題を具体的に言及）
+                            </div>
+                            <div class="result-item">
+                                <strong>学術的深度:</strong> 「社会技術」「シビックマッスル」等の概念を学術的文脈で解説
+                            </div>
+                            <div class="result-item">
+                                <strong>評価:</strong> ⭐⭐⭐⭐ 大学生の思考力向上に最適。批判的思考と建設的議論の両立を実現
+                            </div>
+                        </div>
+
+                        <div class="transcript-section">
+                            <a href="transcripts/audrey-tang_03_academic.md" class="transcript-btn">
+                                📄 詳細文字起こし（学術向け）
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- パターン4: ビジネス向け -->
+                <div class="pattern-card">
+                    <div class="pattern-header">
+                        <h3>4️⃣ ビジネス応用パターン</h3>
+                        <span class="status-badge completed">完了</span>
+                    </div>
+                    <div class="pattern-content">
+                        <div class="design-philosophy">
+                            <h4>プロンプト設計思想</h4>
+                            <ul>
+                                <li><strong>ターゲット:</strong> 経営層・管理職</li>
+                                <li><strong>焦点:</strong> 組織運営への応用</li>
+                                <li><strong>期待効果:</strong> ROI視点での価値発見</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="prompt-section">
+                            <h4>実際のプロンプト</h4>
+                            <div class="prompt-text">
+                                企業の経営者・管理職に向けて、オードリー・タン氏が紹介している合意形成技術や民主的意思決定の手法が、組織運営やチームマネジメントにどう応用できるかに焦点を当てて説明してください。ROIや具体的な導入効果についても言及してください。
+                            </div>
+                        </div>
+
+                        <div class="audio-section">
+                            <a href="https://youtu.be/aJAzLsLZ30E" class="audio-btn" target="_blank">
+                                🎵 実際の音声を聴く
+                            </a>
+                        </div>
+
+                        <div class="results-grid">
+                            <div class="result-item">
+                                <strong>印象・特徴:</strong> 完全にビジネス視点。組織運営・チームマネジメントへの応用に特化
+                            </div>
+                            <div class="result-item">
+                                <strong>ROI視点の反映:</strong> プロンプト指定通り「手戻りコスト削減」「エンゲージメント向上」等を明示
+                            </div>
+                            <div class="result-item">
+                                <strong>組織応用の具体性:</strong> 極めて高い（人事制度、予算配分、部署間対立解決等の具体例）
+                            </div>
+                            <div class="result-item">
+                                <strong>実用性:</strong> 「並列処理」「平行リスニング」をビジネス文脈で分かりやすく解説
+                            </div>
+                            <div class="result-item">
+                                <strong>評価:</strong> ⭐⭐⭐⭐ 経営層・管理職が即座に活用できる実践的価値を提供
+                            </div>
+                        </div>
+
+                        <div class="transcript-section">
+                            <a href="transcripts/audrey-tang_04_business.md" class="transcript-btn">
+                                📄 詳細文字起こし（ビジネス向け）
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- パターン5: クリエイター向け -->
+                <div class="pattern-card highlight">
+                    <div class="pattern-header">
+                        <h3>5️⃣ クリエイター特化パターン 🏆</h3>
+                        <span class="status-badge completed">完了</span>
+                        <span class="highlight-badge">最高傑作</span>
+                    </div>
+                    <div class="pattern-content">
+                        <div class="design-philosophy">
+                            <h4>プロンプト設計思想</h4>
+                            <ul>
+                                <li><strong>ターゲット:</strong> クリエイティブ系ソフトを使いこなすクリエイター</li>
+                                <li><strong>焦点:</strong> 創作活動・コミュニティ形成への応用</li>
+                                <li><strong>期待効果:</strong> 個人クリエイターの視点での新発見</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="prompt-section">
+                            <h4>実際のプロンプト</h4>
+                            <div class="prompt-text">
+                                クリエイティブ系ソフト（Logic Pro、Final Cut Pro、Blender等）を使いこなすクリエイターに向けて、オードリー・タン氏が語る「技術で社会を良くする」というビジョンが、私たちのような個人クリエイターの活動や作品作りにどんなインスピレーションを与えてくれるかを、熱意を込めて語ってください。特に「分断を減らし、合意を作る技術」という考え方が、作品制作やコミュニティ形成にどう活かせるかを具体的に。
+                            </div>
+                        </div>
+
+                        <div class="audio-section">
+                            <a href="https://youtu.be/GdzFgcT4a9g" class="audio-btn" target="_blank">
+                                🎵 実際の音声を聴く
+                            </a>
+                        </div>
+
+                        <div class="results-grid">
+                            <div class="result-item">
+                                <strong>印象・特徴:</strong> 冒頭から「Logic Pro、Final Cut Pro、Blender」で開始！完璧なクリエイター特化
+                            </div>
+                            <div class="result-item">
+                                <strong>クリエイター環境への言及:</strong> プロンプト指定環境が100%反映。具体的ツール名で実践的アドバイス
+                            </div>
+                            <div class="result-item">
+                                <strong>熱意の演出度:</strong> 極めて高い「すごく刺激的」「新しい視点」等、プロンプト指定の熱意が完璧表現
+                            </div>
+                            <div class="result-item">
+                                <strong>設計意図の反映度:</strong> 完璧（創作→コミュニティ形成→リアル繋がりまでの流れを実現）
+                            </div>
+                            <div class="result-item">
+                                <strong>独自性:</strong> 最高レベル（上映会、体験会、ライブ等の具体的行動提案）
+                            </div>
+                            <div class="result-item">
+                                <strong>評価:</strong> 🏆⭐⭐⭐⭐⭐ <strong>大成功ポイント:</strong> Logic Pro解説が即座に開始し、クリエイター環境を完全理解した内容
+                            </div>
+                        </div>
+
+                        <div class="transcript-section">
+                            <a href="transcripts/audrey-tang_05_creator.md" class="transcript-btn">
+                                📄 詳細文字起こし（クリエイター向け）
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 実験分析 -->
+            <section id="analysis" class="section">
+                <h2 class="section-title">🔬 実験分析結果</h2>
+                
+                <div class="analysis-grid">
+                    <div class="analysis-card">
+                        <h3>📊 各パターンの特徴比較</h3>
+                        <div class="comparison-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>パターン</th>
+                                        <th>専門性</th>
+                                        <th>具体性</th>
+                                        <th>エンタメ性</th>
+                                        <th>実用性</th>
+                                        <th>独自性</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>技術者向け</td>
+                                        <td>⭐⭐⭐⭐⭐</td>
+                                        <td>⭐⭐⭐⭐⭐</td>
+                                        <td>⭐⭐</td>
+                                        <td>⭐⭐⭐⭐⭐</td>
+                                        <td>⭐⭐⭐</td>
+                                    </tr>
+                                    <tr>
+                                        <td>一般向け</td>
+                                        <td>⭐⭐</td>
+                                        <td>⭐⭐⭐</td>
+                                        <td>⭐⭐⭐⭐⭐</td>
+                                        <td>⭐⭐⭐</td>
+                                        <td>⭐⭐</td>
+                                    </tr>
+                                    <tr>
+                                        <td>学術向け</td>
+                                        <td>⭐⭐⭐⭐⭐</td>
+                                        <td>⭐⭐⭐</td>
+                                        <td>⭐⭐</td>
+                                        <td>⭐⭐⭐</td>
+                                        <td>⭐⭐⭐</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ビジネス向け</td>
+                                        <td>⭐⭐⭐</td>
+                                        <td>⭐⭐⭐⭐⭐</td>
+                                        <td>⭐⭐</td>
+                                        <td>⭐⭐⭐⭐⭐</td>
+                                        <td>⭐⭐⭐</td>
+                                    </tr>
+                                    <tr class="highlight-row">
+                                        <td>クリエイター向け 🏆</td>
+                                        <td>⭐⭐⭐</td>
+                                        <td>⭐⭐⭐⭐⭐</td>
+                                        <td>⭐⭐⭐⭐</td>
+                                        <td>⭐⭐⭐⭐⭐</td>
+                                        <td>⭐⭐⭐⭐⭐</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="analysis-card">
+                        <h3>🏆 最も効果的だったパターン</h3>
+                        <div class="winner-section">
+                            <h4>パターン5（クリエイター特化） - 最高傑作✨</h4>
+                            <ul>
+                                <li><strong>成功要因:</strong> 実環境（Logic Pro, Final Cut Pro, Blender）の具体的明記</li>
+                                <li><strong>独自性:</strong> 他パターンにない「創作活動」視点での抽象概念の具体化</li>
+                                <li><strong>実用性:</strong> 上映会・体験会・ライブ等の実践的行動提案</li>
+                                <li><strong>感情的響き:</strong> 熱意指定が完璧に反映され、聴取者のモチベーション向上効果</li>
+                                <li><strong>設計哲学:</strong> 「本当に欲しい情報」を中心とした設計思想の勝利</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 学習ポイント -->
+            <section id="learning" class="section">
+                <h2 class="section-title">💡 学習ポイント・改良点</h2>
+                
+                <div class="learning-grid">
+                    <div class="learning-card">
+                        <h3>📝 プロンプト設計の学び</h3>
+                        <ol>
+                            <li><strong>環境特化の威力:</strong> パターン5で具体的ツール名を明記したことで、即座にLogic Pro解説が開始。環境の具体化がAIの理解度を劇的に向上させる</li>
+                            <li><strong>トーン指定の有効性:</strong> 「わくわく感」「熱意」等の感情指定が期待以上に反映。AIの感情表現能力が想像より高い</li>
+                            <li><strong>ターゲット特化の成功:</strong> 全5パターンが明確に異なる個性を発揮。専門用語密度・説明方法・具体例が完全に変化</li>
+                            <li><strong>橋渡し概念の普遍性:</strong> 全パターンで「橋渡し」「合意形成」概念が適切に各分野の文脈で翻訳された</li>
+                            <li><strong>プロンプト長さの最適化:</strong> 中程度の長さ（100-150語）が最も効果的。短すぎると特化度不足、長すぎると焦点分散</li>
+                        </ol>
+                    </div>
+
+                    <div class="learning-card">
+                        <h3>🔧 次回への改良案</h3>
+                        <ol>
+                            <li><strong>音声長さの制御:</strong> 全パターンで音声長さがばらつき（87-177行）。長さ指定プロンプトの追加検討</li>
+                            <li><strong>複合ターゲット実験:</strong> 「IT×クリエイター」「学術×ビジネス」等の複合ターゲット設計</li>
+                            <li><strong>具体性レベルの段階的制御:</strong> 「概念理解」「実践応用」「詳細実装」の3段階プロンプト設計</li>
+                            <li><strong>感情指定の精密化:</strong> 「わくわく」「熱意」以外の感情（「安心感」「緊迫感」等）での実験</li>
+                            <li><strong>文化・地域特化:</strong> 日本特化以外（アジア全体、欧米等）での比較実験</li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 実験の意義 -->
+            <section class="section significance">
+                <h2 class="section-title">🚀 この実験の意義</h2>
+                
+                <div class="significance-grid">
+                    <div class="significance-item">
+                        <h3>🎯 学術的価値</h3>
+                        <ul>
+                            <li>プロンプトエンジニアリングの効果測定</li>
+                            <li>ターゲット特化設計の有効性検証</li>
+                            <li>複雑な学術コンテンツの音声化最適化</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="significance-item">
+                        <h3>💼 実用的価値</h3>
+                        <ul>
+                            <li>NotebookLM活用ガイドの実証</li>
+                            <li>クリエイター向けAI活用手法の開発</li>
+                            <li>個人学習効率化の具体的手法</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="significance-item">
+                        <h3>🤝 協働的価値</h3>
+                        <ul>
+                            <li>理論と実践の架け橋</li>
+                            <li>継続的改良システムの構築</li>
+                            <li>価値創造プロジェクトの成功例</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 最終分析結果 -->
+            <section class="section final-analysis">
+                <h2 class="section-title">🎉 最終分析結果</h2>
+                
+                <div class="final-summary">
+                    <div class="summary-badge">
+                        <span class="status">実験ステータス: ✅ 完了</span>
+                        <span class="rating">総合評価: 🏆 大成功⭐⭐⭐⭐⭐</span>
+                    </div>
+                    
+                    <div class="summary-text">
+                        <p>この実験は期待を大幅に上回る成功を収めました！プロンプトエンジニアリングの威力を実証し、NotebookLMの可能性を最大限に引き出すことができました。</p>
+                        
+                        <h4>🏅 特筆すべき成果</h4>
+                        <ul>
+                            <li><strong>完璧なターゲット特化:</strong> 全5パターンが期待通り異なる個性を発揮</li>
+                            <li><strong>環境特化の威力実証:</strong> パターン5でのLogic Pro即座言及は設計思想の完全勝利</li>
+                            <li><strong>感情表現の精密制御:</strong> AIの感情表現能力が予想以上に高いことを発見</li>
+                            <li><strong>実用性の確保:</strong> 全パターンで聴取者が即座に活用できる具体的アドバイスを生成</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 NotebookLM実践例プロジェクト | オードリー・タン講演5パターンプロンプト実験</p>
+            <p>実験者: 春香 × テルさん | 実験期間: 2025年6月14日</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
