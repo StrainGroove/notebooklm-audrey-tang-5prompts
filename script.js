@@ -101,10 +101,10 @@ document.addEventListener('DOMContentLoaded', function() {
             background: #007bff !important;
             color: white !important;
             border: none !important;
-            padding: 8px 12px !important;
-            border-radius: 6px !important;
+            padding: 6px 10px !important;
+            border-radius: 4px !important;
             cursor: pointer !important;
-            font-size: 0.9rem !important;
+            font-size: 0.8rem !important;
             font-weight: 500 !important;
             transition: all 0.3s ease !important;
             opacity: 0.9 !important;

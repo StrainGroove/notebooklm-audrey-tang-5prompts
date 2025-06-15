@@ -331,7 +331,7 @@ body {
 .prompt-text {
     background: #f8f9fa;
     border-left: 4px solid #007bff;
-    padding: 20px 80px 20px 20px; /* 右側にコピーボタン用の余白を拡大 */
+    padding: 40px 80px 20px 20px; /* 上部余白を拡大してテキストを1行分下げる */
     border-radius: var(--border-radius);
     font-style: italic;
     line-height: 1.6;
@@ -348,9 +348,9 @@ body {
     background: #007bff !important;
     color: white !important;
     border: none !important;
-    padding: 8px 12px !important;
-    border-radius: 6px !important;
-    font-size: 0.9rem !important;
+    padding: 6px 10px !important;
+    border-radius: 4px !important;
+    font-size: 0.8rem !important;
     cursor: pointer !important;
     z-index: 10 !important;
 }
