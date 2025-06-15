@@ -239,10 +239,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     transcriptButtons.forEach(btn => {
         btn.addEventListener('click', function(e) {
-            // スクロール位置を保存
-            const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
-            sessionStorage.setItem('scrollPosition', scrollPosition);
-            
             // Add click animation
             this.style.transform = 'scale(0.95)';
             
@@ -253,25 +249,6 @@ document.addEventListener('DOMContentLoaded', function() {
             // Track click analytics (if needed)
             console.log('Transcript button clicked:', this.href);
         });
-    });
-    
-    // ページ読み込み時のスクロール位置復元
-    window.addEventListener('load', function() {
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.get('returnTo') === 'scroll') {
-            const savedPosition = sessionStorage.getItem('scrollPosition');
-            if (savedPosition) {
-                // スムーズスクロールでの復元
-                window.scrollTo({
-                    top: parseInt(savedPosition),
-                    behavior: 'smooth'
-                });
-                // 使用済みの位置情報を削除
-                sessionStorage.removeItem('scrollPosition');
-                // URLパラメータをクリア
-                window.history.replaceState({}, document.title, window.location.pathname);
-            }
-        }
     });
     
     // Loading screen simulation
