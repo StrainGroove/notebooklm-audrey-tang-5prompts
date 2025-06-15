@@ -7,6 +7,7 @@
     <style>
         :root {
             --primary-color: #6366f1;
+            --primary-dark: #4f46e5;
             --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             --text-color: #1f2937;
             --text-muted: #6b7280;
@@ -15,24 +16,78 @@
             --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Hiragino Sans', 'Noto Sans JP', sans-serif; line-height: 1.7; color: var(--text-color); background: var(--bg-gray); }
-        .header { background: var(--bg-gradient); color: white; padding: 2rem 0; text-align: center; }
-        .container { max-width: 800px; margin: 0 auto; padding: 0 1rem; }
-        .header h1 { font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Hiragino Sans', 'Noto Sans JP', sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background: var(--bg-gray);
+        }
+
+        .header {
+            background: var(--bg-gradient);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
         .header .subtitle {
             font-size: 1.3rem;
             font-weight: 600;
             opacity: 0.95;
             margin-bottom: 0.5rem;
         }
-        .main-content { background: var(--bg-white); margin: 2rem auto; padding: 2rem; border-radius: 12px; box-shadow: var(--shadow-md); max-width: 800px; }
-        .back-button { display: inline-flex; background: var(--primary-color); color: white; text-decoration: none; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600; margin-bottom: 2rem; }
-        .pattern-info { background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%); padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem; border-left: 4px solid var(--primary-color); }
+
+        .main-content {
+            background: var(--bg-white);
+            margin: 2rem auto;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            max-width: 800px;
+        }
+
+        .back-button {
+            display: inline-flex;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .pattern-info {
+            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--primary-color);
+        }
+
         .transcript-content { margin-top: 2rem; }
         .speaker-male { font-weight: 700; color: #2563eb; margin-top: 1.5rem; margin-bottom: 0.5rem; }
         .speaker-female { font-weight: 700; color: #dc2626; margin-top: 1.5rem; margin-bottom: 0.5rem; }
         .dialogue { margin-bottom: 1rem; padding: 0.5rem 0; border-left: 3px solid #e5e7eb; padding-left: 1rem; }
+
         .footer { text-align: center; padding: 2rem; color: var(--text-muted); }
     </style>
 </head>
@@ -40,7 +95,7 @@
     <header class="header">
         <div class="container">
             <h1>生成音声の文字起こし</h1>
-            <p class="subtitle">理解促進×エンターテイメント融合パターン</p>
+            <p class="subtitle">一般向け分かりやすさ重視パターン</p>
             <p>NotebookLM実践例 - オードリー・タン講演プロンプト実験</p>
         </div>
     </header>
@@ -48,218 +103,235 @@
     <main class="main-content">
         <a href="../index.html" class="back-button">← メインページに戻る</a>
 
-
-
         <div class="transcript-content">
             <h3>🎧 生成音声文字起こし</h3>
             
-            <div class="speaker-female">女性:</div>
-            <div class="dialogue">さあ、今日はちょっと興味深いお話をしてみましょうか。台湾のオードリー・タンさんっていう方、ご存知ですか？</div>
-
             <div class="speaker-male">男性:</div>
-            <div class="dialogue">ああ、台湾のデジタル担当大臣の方ですね。</div>
+            <div class="dialogue">民主主義って、まあ、基本は多数決ですけど、ほら、51対49みたいに僅差だと、なんかこう社会がギスギスしちゃうことってありますよね。</div>
 
             <div class="speaker-female">女性:</div>
-            <div class="dialogue">そうそう。この方が進めてる民主主義とテクノロジーの話、これがすごく面白いんです。私たちの日常にも関係してくるような内容で。</div>
+            <div class="dialogue">ええ、ありますね。多数派が勝っても、その残りの人たちの納得感がないと、不満がくすぶり続けるっていう。</div>
 
             <div class="speaker-male">男性:</div>
-            <div class="dialogue">へえ、どんな？</div>
+            <div class="dialogue">これ結構今の民主主義の大きな課題かなって思うんです。</div>
 
             <div class="speaker-female">女性:</div>
-            <div class="dialogue">まず、今の社会って、なんでもかんでも賛成派と反対派に分かれちゃって、対立しがちじゃないですか。</div>
+            <div class="dialogue">そうですね。対立が固定化しちゃうというか。</div>
 
             <div class="speaker-male">男性:</div>
-            <div class="dialogue">確かにそうですね。テレビの討論番組とかでも。</div>
+            <div class="dialogue">で、今日はですね、台湾のデジタル担当大臣だった、あのオードリー・タンさん。</div>
 
             <div class="speaker-female">女性:</div>
-            <div class="dialogue">そう。で、結局多数決で決まるんだけど、例えば100人中51人が賛成で49人が反対だったら、49人の人はあんまり納得いかないじゃないですか。「なんで私たちの意見は通らないの？」って。</div>
+            <div class="dialogue">はい。</div>
 
             <div class="speaker-male">男性:</div>
-            <div class="dialogue">うーん、確かに。僅差だと特にそう感じるかも。</div>
+            <div class="dialogue">あのアイデア、これをちょっと深掘りしたいなと。</div>
 
             <div class="speaker-female">女性:</div>
-            <div class="dialogue">でしょ？で、オードリー・タンさんが言ってるのは、その51対49の争いをやめて、みんながある程度納得できる道を見つけようってことなんです。</div>
+            <div class="dialogue">ああ、タンさん。テクノロジーで民主主義を良くしようという。</div>
 
             <div class="speaker-male">男性:</div>
-            <div class="dialogue">みんなが納得できる道？それってどうやって？</div>
+            <div class="dialogue">そうなんです。特にプルラリティっていう考え方。これがすごく面白くて、なんかワクワクするんですよ。</div>
 
             <div class="speaker-female">女性:</div>
-            <div class="dialogue">例えばね、町内会で公園の使い方について話し合うとしましょう。子育て世代は「子供が安全に遊べる遊具を増やして」って言うし、お年寄りは「静かにベンチで休める場所がほしい」って言う。</div>
+            <div class="dialogue">ええ。違いを対立の種じゃなく、力に変えるっていう発想ですね。タン氏の考える新しい民主主義の形。</div>
 
             <div class="speaker-male">男性:</div>
-            <div class="dialogue">ああ、対立しそうですね。</div>
+            <div class="dialogue">では早速、そのプルラリティ、これちょっと耳慣れないですけど、どういう意味なんですか？</div>
 
             <div class="speaker-female">女性:</div>
-            <div class="dialogue">普通だとそうなっちゃうんだけど、よくよく話を聞いてみると、実はどちらも「安全で居心地の良い公園にしたい」っていう共通の願いがあることがわかる。</div>
+            <div class="dialogue">あの、根っこはすごくシンプルで、社会には色々な意見があるのが当たり前っていう、ま、そこからスタートするんですね。</div>
 
             <div class="speaker-male">男性:</div>
-            <div class="dialogue">なるほど。</div>
+            <div class="dialogue">ふむふむ。多様性が前提、と。</div>
 
             <div class="speaker-female">女性:</div>
-            <div class="dialogue">だったら、時間帯で使い分けするとか、エリアを分けるとか、両方が満足できるアイデアが出てくるかもしれない。</div>
+            <div class="dialogue">ええ。で、テクノロジーはその違いをただ見せるだけじゃなくて、違う意見の間に隠れているかもしれない共通の価値観、これをタンさんは橋って呼んでるんですけど、その橋を見つける手助けができる、と。</div>
 
             <div class="speaker-male">男性:</div>
-            <div class="dialogue">ああ、それだったらどっちも嬉しいですね。</div>
+            <div class="dialogue">へえー、橋ですか。違いを認めつつ共通点を探す。多数決でバッサリじゃなくて。</div>
 
             <div class="speaker-female">女性:</div>
-            <div class="dialogue">そう！そういう「あ、意外とここは一緒だったんだ」っていう共通点を見つけるのを手伝ってくれるのが、新しいテクノロジーなんです。</div>
+            <div class="dialogue">そうなんです。だから目指すのは、どっちかが100%勝つんじゃなくて、多くの人が、まあこれなら、って思えるような、おおよその合意、ラフコンセンサスって言いますけど。</div>
 
             <div class="speaker-male">男性:</div>
-            <div class="dialogue">手伝ってくれるって、どうやって？</div>
+            <div class="dialogue">おおよその合意。</div>
 
             <div class="speaker-female">女性:</div>
-            <div class="dialogue">ポリスっていうツールがあるんですけど、これがすごくシンプルで。みんなの意見を集めて、「この意見にあなたは賛成？反対？」って聞くだけ。</div>
+            <div class="dialogue">ええ。タンさんはこれを車の運転に例えてて、アクセルとブレーキだけじゃなく、どっちの方向に進むかを調整するハンドルが大事なんだと。</div>
 
             <div class="speaker-male">男性:</div>
-            <div class="dialogue">シンプルですね。</div>
+            <div class="dialogue">なるほど。進むか止まるか、だけじゃなくて、どう進むか、ですね。面白い例えです。</div>
 
             <div class="speaker-female">女性:</div>
-            <div class="dialogue">で、コンピューターが「あ、この人とこの人は似たような考えを持ってるな」「でもこの意見については、普段対立してるグループの人たちも両方賛成してるな」っていうのを見つけてくれる。</div>
+            <div class="dialogue">うん。まさに、対立じゃなく協調を促す考え方ですね。</div>
 
             <div class="speaker-male">男性:</div>
-            <div class="dialogue">へえー、面白い。</div>
+            <div class="dialogue">じゃあ、具体的にどうやってテクノロジーを使うんですか？あの、台湾でのUberの話がありましたよね。</div>
 
             <div class="speaker-female">女性:</div>
-            <div class="dialogue">台湾でUberの問題があった時も、このツールを使ったんです。タクシー業界は「Uberは困る」って言うし、利用者は「便利だから使いたい」って言う。</div>
+            <div class="dialogue">ああ、はい。Uber導入を巡って、賛成と反対でかなり激しい対立があった時に、ポリ（Polis）っていうシステムが使われたんです。</div>
 
             <div class="speaker-male">男性:</div>
-            <div class="dialogue">完全に対立してますね。</div>
+            <div class="dialogue">ポリス？</div>
 
             <div class="speaker-female">女性:</div>
-            <div class="dialogue">でも話し合ってみると、両方とも「安全で公正な交通サービスがほしい」っていう点では一致してた。だから、ちゃんとした保険に入るとか、料金を透明にするとか、そういう条件をつけることで解決したんです。</div>
+            <div class="dialogue">ええ。これ、オープンソースの技術で、面白いのは、SNSみたいな返信ボタンがないんですよ。賛成か反対か、意思表示するだけ。</div>
 
             <div class="speaker-male">男性:</div>
-            <div class="dialogue">なるほど、いいとこ取りみたいな。</div>
+            <div class="dialogue">返信がない？え？それでどうなるんです？炎上しなさそうですけど。</div>
 
             <div class="speaker-female">女性:</div>
-            <div class="dialogue">そうそう。喧嘩するんじゃなくて、一緒に良いものを作っていく感じ。</div>
+            <div class="dialogue">そうそう。で、意見に賛成反対していくと、自分のアバターが、意見が近い人たちが集まるクラスターに、こうマップ上で動いていくんです。</div>
 
             <div class="speaker-male">男性:</div>
-            <div class="dialogue">でも、そういう話し合いって時間がかかりそう。</div>
+            <div class="dialogue">ふーん。可視化されるんですね、意見の分布が。</div>
 
             <div class="speaker-female">女性:</div>
-            <div class="dialogue">それが、台湾では驚くほど早かったりするんです。例えば、偽の広告で騙される人が増えた時の対応。</div>
+            <div class="dialogue">ええ。で、ここが重要なんですけど、違うグループの間をつなぐような、橋渡しになる意見を誰でも提案できて、そういう意見ほど多くの人から賛成を集めやすい、つまり目立ちやすい仕組みなんです。</div>
 
             <div class="speaker-male">男性:</div>
-            <div class="dialogue">ああ、詐欺広告ですね。</div>
+            <div class="dialogue">あ、なるほど。過激な意見じゃなくて、むしろこう間を取り持つような建設的な意見が評価される。</div>
 
             <div class="speaker-female">女性:</div>
-            <div class="dialogue">そう。普通だったら「規制を強化する」「いや、表現の自由が大切」って対立しそうなんだけど、台湾では数ヶ月で新しいルールができた。</div>
+            <div class="dialogue">と、そういうことです。結果どうなったかというと、Uberに賛成の人も反対の人も、ほぼ全員が「これなら」と合意できる9つの具体的なルールがまとまって。</div>
 
             <div class="speaker-male">男性:</div>
-            <div class="dialogue">早いですね。どうやったんですか？</div>
+            <div class="dialogue">すごい。それが法律にまでなったんですか？</div>
 
             <div class="speaker-female">女性:</div>
-            <div class="dialogue">まず20万人にスマホで「あなたはどう思う？」って聞いたんです。で、その中から450人を選んで、話し合いをしてもらった。</div>
+            <div class="dialogue">ええ。見事な「おおよその合意」ですよね。</div>
 
             <div class="speaker-male">男性:</div>
-            <div class="dialogue">450人で話し合い？まとまるんですか？</div>
+            <div class="dialogue">いやー、それはすごいですね。でも、意見がたくさん集まると、それを全部把握するのって大変じゃないですか？</div>
 
             <div class="speaker-female">女性:</div>
-            <div class="dialogue">ここがポイントで、450人を45のグループに分けて、同時に話し合いをしたんです。そして、AIがそれぞれのグループで出たいいアイデアをまとめてくれた。</div>
+            <div class="dialogue">そこなんですよ。そこでAIの出番です。ポリスみたいなシステムだと、AIが膨大な意見を似たもの同士で自動的にグループ分けしてくれるんです。クラスタリングですね。</div>
 
             <div class="speaker-male">男性:</div>
-            <div class="dialogue">なるほど、効率的ですね。</div>
+            <div class="dialogue">AIが分類を。</div>
 
             <div class="speaker-female">女性:</div>
-            <div class="dialogue">まるで、大きな会社の会議を効率よくやるような感じ。みんなで一度に話すと収拾がつかないから、小さなグループに分けて、それぞれの結論をうまくまとめる。</div>
+            <div class="dialogue">ええ。そして、各グループの主な論点をAIが要約してくれる。アメリカのケンタッキー州の町でも使われた例があるんですが、AIの要約を見れば、みんなが何に合意しているかが一目でわかると。</div>
 
             <div class="speaker-male">男性:</div>
-            <div class="dialogue">普通の会議でも使えそうなアイデアですね。</div>
+            <div class="dialogue">なるほど。効率的ですね。自分の意見がどうなったかも追えるんですか？</div>
 
             <div class="speaker-female">女性:</div>
-            <div class="dialogue">そうなんです。で、もう一つ面白いのが、台湾の結婚に関する法律の話。</div>
+            <div class="dialogue">そうなんです。だから、参加した実感も持てるし、透明性も高まるわけです。</div>
 
             <div class="speaker-male">男性:</div>
-            <div class="dialogue">同性婚の話ですか？</div>
+            <div class="dialogue">AIが民主主義のプロセスを助ける。うーん、面白い。他にはどんな例が？あの、台湾の同性婚の話も印象的でした。</div>
 
             <div class="speaker-female">女性:</div>
-            <div class="dialogue">そう。これも普通だったら「賛成」「反対」で分かれちゃうところなんだけど、台湾では違うアプローチをした。</div>
+            <div class="dialogue">ええ。あれもプルラリティ的なアプローチの良い例だと思います。同性婚の法制化は台湾でも本当に大きな議論で、社会が二分されるような状況だったんですが。</div>
 
             <div class="speaker-male">男性:</div>
-            <div class="dialogue">どんな？</div>
+            <div class="dialogue">ええ。</div>
 
             <div class="speaker-female">女性:</div>
-            <div class="dialogue">「個人が愛する人と結婚する権利」と「家族の伝統的なあり方」、この2つを分けて考えたんです。</div>
+            <div class="dialogue">ええ。ここでもやっぱり、共通の価値観を探るということが鍵になったんですね。台湾の言葉のニュアンスだと、個人と個人が結びつく「婚姻」と、伝統的な家族、親族のつながりを意味する「家」っていうのは少し違う概念として捉えられていた。</div>
 
             <div class="speaker-male">男性:</div>
-            <div class="dialogue">分けて考える？</div>
+            <div class="dialogue">ほう、言葉のニュアンスですか。深いですね。それでどう着地したんですか？</div>
 
             <div class="speaker-female">女性:</div>
-            <div class="dialogue">「個人の権利は大切にしましょう」「でも、それが理由で伝統的な家族のあり方を無理に変える必要はないですよ」っていう形にした。</div>
+            <div class="dialogue">法律ではまず、個人間の婚姻に関する権利と義務は、異性婚と同じようにしっかり認めました。</div>
 
             <div class="speaker-male">男性:</div>
-            <div class="dialogue">ああ、両方を尊重したんですね。</div>
+            <div class="dialogue">はい。</div>
 
             <div class="speaker-female">女性:</div>
-            <div class="dialogue">そういうこと。どちらか一方が完全に勝つんじゃなくて、どちらも大切にできる道を見つけた。</div>
+            <div class="dialogue">でも、それによって自動的に新しい親族関係、つまり「家」のつながりが生まれるという部分は必須とはしなかったんです。</div>
 
             <div class="speaker-male">男性:</div>
-            <div class="dialogue">プライバシーとかセキュリティはどうしてるんですか？そういうシステムだと。</div>
+            <div class="dialogue">ああ、なるほど。そこを分けたんですね。</div>
 
             <div class="speaker-female">女性:</div>
-            <div class="dialogue">そこも工夫してて、自分の情報を全部さらけ出さなくても参加できるようになってる。例えば、20歳以上だってことは証明するけど、具体的に何歳かは言わなくていい、みたいな。</div>
+            <div class="dialogue">ええ。これで、個人の権利は保障される。一方で伝統的な家族観を大事にする人たちにとっても、自分たちの家のあり方が強制的に変わるわけじゃないと、両方が受け入れやすい落としどころを見つけたわけです。</div>
 
             <div class="speaker-male">男性:</div>
-            <div class="dialogue">へえー、必要な分だけ。</div>
+            <div class="dialogue">うまいですね。すごく繊細なバランス感覚。</div>
 
             <div class="speaker-female">女性:</div>
-            <div class="dialogue">そう。まるで図書館で本を借りる時に、「私は図書館の利用者です」っていう証明だけして、住所や電話番号は見せなくていい、みたいな感じ。</div>
+            <div class="dialogue">結果的に、法制化された後の社会の分断はかなり抑えられたと言われています。</div>
 
             <div class="speaker-male">男性:</div>
-            <div class="dialogue">わかりやすい例えですね。</div>
+            <div class="dialogue">なるほどなあ。あの、タンさんが「民主主義もテクノロジーだ」って言ってるのは、そういう改善ができるっていう意味合いなんですか？</div>
 
             <div class="speaker-female">女性:</div>
-            <div class="dialogue">日本でも、地域の町内会とか自治会で、こういう考え方を使えるかもしれませんね。</div>
+            <div class="dialogue">そうですね。コンピューターの半導体みたいに、民主主義っていう社会のOS、ソーシャルテクノロジーも、固定されたものじゃなくて、みんなで知恵を出してより良く発明し、アップデートしていけるんだ、という考え方です。</div>
 
             <div class="speaker-male">男性:</div>
-            <div class="dialogue">確かに。対立するんじゃなくて、共通点を探す。</div>
+            <div class="dialogue">民主主義もOS。面白い。</div>
 
             <div class="speaker-female">女性:</div>
-            <div class="dialogue">そうそう。例えば、マンションの管理組合の会議とか、PTA の活動とか、職場の会議とかでも。</div>
+            <div class="dialogue">台湾って、総統の直接選挙が始まったのが1996年で、インターネットの普及とほぼ同時期なんですね。だから、人々のなかに、民主主義を何か完成されたものというより、レゴブロックみたいに参加型予算とか電子請願とか色々な発明品を組み合わせて良くしていけるもの、っていう感覚があるのかもしれない、とタン氏は指摘しています。</div>
 
             <div class="speaker-male">男性:</div>
-            <div class="dialogue">「賛成」「反対」で終わりじゃなくて、「みんなが納得できる第三の道はないかな？」って考える。</div>
+            <div class="dialogue">なるほど。自分たちで作り上げていく感覚があるんですね。でも一方で、今のSNSって、むしろ分断を深めてる面もありますよね。タンさんはそこはどう考えてるんですか？</div>
 
             <div class="speaker-female">女性:</div>
-            <div class="dialogue">まさに！そうやって考えると、普段の生活でも活かせることがたくさんありそう。</div>
+            <div class="dialogue">ええ、そこも鋭く指摘していますね。特に2015年頃から主流になった、あの「おすすめフィード」、For Youフィードのアルゴリズム。</div>
 
             <div class="speaker-male">男性:</div>
-            <div class="dialogue">技術が人と人を対立させるんじゃなくて、逆に協力させるために使われてるっていうのが新鮮でした。</div>
+            <div class="dialogue">ああ、ありますね。ついつい見ちゃうやつ。</div>
 
             <div class="speaker-female">女性:</div>
-            <div class="dialogue">ほんとにそうですね。SNSとかだと、つい対立が生まれがちだけど、使い方次第では、みんなで一緒に良いアイデアを作る道具にもなる。</div>
+            <div class="dialogue">あれは、ユーザーの滞在時間とか反応、特に怒りみたいな強い感情を引き出す投稿を優先して表示して、エンゲージメントを高めようとする。結果、自分と似た意見ばかり見てしまうフィルターバブルが生まれて、過激な情報が広まりやすくなった、と。</div>
 
             <div class="speaker-male">男性:</div>
-            <div class="dialogue">なんか希望が持てる話でした。私たちの社会も、もっと協力的になれるかも。</div>
+            <div class="dialogue">うーん、それは実感としてありますね。なんかこう、対立が煽られてるような。解決策はあるんでしょうか？</div>
 
             <div class="speaker-female">女性:</div>
-            <div class="dialogue">きっとなれますよ。一人一人が「対立じゃなくて協力」を意識するだけでも、変わってくると思います。今日はありがとうございました。</div>
+            <div class="dialogue">タン氏が挙げるのはいくつかあって、1つは、さっきのポリスの発想に近いんですが、Twitter、今のXのコミュニティノートみたいに、違う意見を持つ人たち双方から「これは有益だ」と評価される情報がちゃんと見えるようになるアルゴリズム。</div>
 
             <div class="speaker-male">男性:</div>
-            <div class="dialogue">ありがとうございました。</div>
+            <div class="dialogue">なるほど。建設的な情報がちゃんと評価される仕組みですね。</div>
 
-            <p style="text-align: center; margin: 2rem 0; color: var(--text-muted); font-style: italic;">
-                <strong>...この続きを含む完全な文字起こし（124行）をお読みいただけます...</strong>
-            </p>
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">もう1つは、プラットフォーム間の相互運用性、インターオペラビリティを高める法律。アメリカのユタ州の例を挙げていますが、ユーザーが自分のデータとかフォロワーを失わずに、別の、もっと健全なプラットフォームに移りやすくする。</div>
 
-            <h4 style="margin-top: 2rem; color: var(--primary-color);">🏠 一般向け成功要素</h4>
-            <div style="background: #f3f4f6; padding: 1rem; border-radius: 8px; margin-top: 1rem;">
-                <h5>身近な例え話の活用</h5>
-                <ul>
-                    <li><strong>町内会の公園使用問題</strong>: 子育て世代 vs お年寄り</li>
-                    <li><strong>図書館利用カード</strong>: プライバシー保護の説明</li>
-                    <li><strong>会社の効率的会議</strong>: 45グループ並列処理</li>
-                    <li><strong>マンション管理組合・PTA</strong>: 日本への応用例</li>
-                </ul>
-                <h5>対立→協力の思考転換</h5>
-                <ul>
-                    <li>51対49の不満を解消する視点</li>
-                    <li>「賛成」「反対」を超えた第三の道</li>
-                    <li>共通点発見の価値</li>
-                    <li>希望的で前向きなメッセージ</li>
-                </ul>
-            </div>
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">ああ、それなら巨大プラットフォームの独占も防げるし、より良いサービスへの競争も生まれますね。</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">そういうことです。健全な競争を促すわけですね。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">そういう具体的な動きもあるんですね。いや、今日色々聞いてると、なんか希望も感じますけど、でも現実はなかなか、って気も正直します。</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">タン氏はかなり楽観的なんですよね。その理由は、やっぱり台湾で、テクノロジーの助けもあって、一時期9%とかまで落ち込んだ政府への信頼度を70%以上にまで回復させたっていう、そういう成功体験があるからだと思います。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">9%から70%、それはすごいですね。</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">ええ。そして、すごく大事なのは、AIはあくまで補助的知能、アシスティブインテリジェンスだって言ってる点です。AIが人間の仕事を奪うんじゃなくて、むしろ私たち人間同士がちゃんと対話して信頼関係を築く、タンさんの言葉で言う「市民の筋肉」、シビックマッスルを鍛える時間を与えてくれる存在なんだ、と。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">市民の筋肉。面白い表現ですね。</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">ええ。アバター同士がいくら話し合っても、私たちの間の本当の信頼は深まりませんからね。リアルな対話が重要だと。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">なるほど。今日はオードリー・タンさんの考え方を通して、テクノロジー、特にAIを対立のためじゃなく、共通の価値観を見つけるために使うことで、民主主義をもっと良くしていけるっていう、そういう可能性をすごく感じました。</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">ええ。プルーラリティ、違いを力に変えるっていう視点ですね。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">これが鍵でしたね。単なる多数決じゃない、もっとこうインクルーシブな合意の形が見えてきた気がします。</div>
+
+            <div class="speaker-female">女性:</div>
+            <div class="dialogue">そうですね。未来への一つのヒントになるかもしれません。</div>
+
+            <div class="speaker-male">男性:</div>
+            <div class="dialogue">さて、これを聞いてくださっているあなたにとって、このプルラリティの発想、身の回りのどんな場面で活かせそうですか？あるいは、もし民主主義がアップグレードできるテクノロジーだとしたら、次に追加してみたい機能って何だと思いますか？ちょっと考えてみるのも面白いかもしれませんね。</div>
+
+
         </div>
     </main>
 
