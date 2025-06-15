@@ -230,7 +230,7 @@ body {
     margin-bottom: 40px;
     overflow: hidden;
     transition: all 0.3s ease;
-    scroll-margin-top: 100px; /* アンカーリンク用オフセット */
+    scroll-margin-top: 70px; /* アンカーリンク用オフセット */
 }
 
 .pattern-card:hover {
@@ -688,7 +688,7 @@ body {
 /* Smooth scrolling */
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 100px; /* ナビゲーションバーの高さ分のオフセット */
+    scroll-padding-top: 70px; /* ナビゲーションバーの高さ分のオフセット */
 }
 
 /* Loading animation for images and content */
