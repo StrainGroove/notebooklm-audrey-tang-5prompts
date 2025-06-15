@@ -20,6 +20,12 @@
         .header { background: var(--bg-gradient); color: white; padding: 2rem 0; text-align: center; }
         .container { max-width: 900px; margin: 0 auto; padding: 0 1rem; }
         .header h1 { font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .header .subtitle {
+            font-size: 1.3rem;
+            font-weight: 600;
+            opacity: 0.95;
+            margin-bottom: 0.5rem;
+        }
         .main-content { background: var(--bg-white); margin: 2rem auto; padding: 2rem; border-radius: 12px; box-shadow: var(--shadow-md); max-width: 900px; }
         .back-button { display: inline-flex; background: var(--primary-color); color: white; text-decoration: none; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600; margin-bottom: 2rem; }
         .pattern-info { background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%); padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem; border-left: 4px solid var(--primary-color); }
@@ -33,7 +39,8 @@
 <body>
     <header class="header">
         <div class="container">
-            <h1>生成音声の文字起こし（議論・考察重視パターン）</h1>
+            <h1>生成音声の文字起こし</h1>
+            <p class="subtitle">議論・考察重視パターン</p>
             <p>NotebookLM実践例 - オードリー・タン講演プロンプト実験</p>
         </div>
     </header>

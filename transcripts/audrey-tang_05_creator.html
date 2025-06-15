@@ -25,6 +25,12 @@
         @keyframes sparkle { 0%, 100% { transform: rotate(0deg) scale(1); } 50% { transform: rotate(180deg) scale(1.2); } }
         .container { max-width: 900px; margin: 0 auto; padding: 0 1rem; position: relative; z-index: 1; }
         .header h1 { font-size: 2.2rem; font-weight: 700; margin-bottom: 0.5rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        .header .subtitle {
+            font-size: 1.3rem;
+            font-weight: 600;
+            opacity: 0.95;
+            margin-bottom: 0.5rem;
+        }
         .winner-badge { background: linear-gradient(45deg, #ffd700, #ffb347); color: #1f2937; padding: 0.5rem 1rem; border-radius: 20px; font-weight: 700; margin: 0.5rem; display: inline-block; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
         .main-content { background: var(--bg-white); margin: 2rem auto; padding: 2rem; border-radius: 12px; box-shadow: var(--winner-shadow); max-width: 900px; border: 2px solid #6366f1; }
         .back-button { display: inline-flex; background: var(--primary-color); color: white; text-decoration: none; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600; margin-bottom: 2rem; box-shadow: var(--shadow-md); }
@@ -39,7 +45,8 @@
 <body>
     <header class="header">
         <div class="container">
-            <h1>🏆 生成音声の文字起こし（クリエイター特化パターン）</h1>
+            <h1>🏆 生成音声の文字起こし</h1>
+            <p class="subtitle">クリエイター特化パターン</p>
             <div class="winner-badge">🥇 最優秀パターン！</div>
             <div class="winner-badge">✨ 創造性刺激度MAX</div>
             <p>NotebookLM実践例 - オードリー・タン講演プロンプト実験</p>
