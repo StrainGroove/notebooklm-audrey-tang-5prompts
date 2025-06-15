@@ -331,7 +331,7 @@ body {
 .prompt-text {
     background: #f8f9fa;
     border-left: 4px solid #007bff;
-    padding: 20px 60px 20px 20px; /* 右側にコピーボタン用の余白を追加 */
+    padding: 20px 80px 20px 20px; /* 右側にコピーボタン用の余白を拡大 */
     border-radius: var(--border-radius);
     font-style: italic;
     line-height: 1.6;

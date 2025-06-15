@@ -95,19 +95,21 @@ document.addEventListener('DOMContentLoaded', function() {
         copyButton.innerHTML = '📋 コピー';
         copyButton.className = 'copy-btn';
         copyButton.style.cssText = `
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: var(--tech-gradient);
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            opacity: 0.8;
+            position: absolute !important;
+            top: 10px !important;
+            right: 10px !important;
+            background: #007bff !important;
+            color: white !important;
+            border: none !important;
+            padding: 8px 12px !important;
+            border-radius: 6px !important;
+            cursor: pointer !important;
+            font-size: 0.9rem !important;
+            font-weight: 500 !important;
+            transition: all 0.3s ease !important;
+            opacity: 0.9 !important;
+            z-index: 10 !important;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
         `;
         
         prompt.style.position = 'relative';
@@ -118,11 +120,11 @@ document.addEventListener('DOMContentLoaded', function() {
             
             navigator.clipboard.writeText(text).then(function() {
                 copyButton.innerHTML = '✅ コピー完了';
-                copyButton.style.background = 'var(--creator-gradient)';
+                copyButton.style.background = '#28a745 !important';
                 
                 setTimeout(function() {
                     copyButton.innerHTML = '📋 コピー';
-                    copyButton.style.background = 'var(--tech-gradient)';
+                    copyButton.style.background = '#007bff !important';
                 }, 2000);
             }).catch(function() {
                 // Fallback for older browsers
@@ -134,23 +136,23 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.body.removeChild(textArea);
                 
                 copyButton.innerHTML = '✅ コピー完了';
-                copyButton.style.background = 'var(--creator-gradient)';
+                copyButton.style.background = '#28a745 !important';
                 
                 setTimeout(function() {
                     copyButton.innerHTML = '📋 コピー';
-                    copyButton.style.background = 'var(--tech-gradient)';
+                    copyButton.style.background = '#007bff !important';
                 }, 2000);
             });
         });
         
         copyButton.addEventListener('mouseenter', function() {
-            this.style.opacity = '1';
-            this.style.transform = 'scale(1.05)';
+            this.style.opacity = '1 !important';
+            this.style.transform = 'scale(1.05) !important';
         });
         
         copyButton.addEventListener('mouseleave', function() {
-            this.style.opacity = '0.8';
-            this.style.transform = 'scale(1)';
+            this.style.opacity = '0.9 !important';
+            this.style.transform = 'scale(1) !important';
         });
     });
     
