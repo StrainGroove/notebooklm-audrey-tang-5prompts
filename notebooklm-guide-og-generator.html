@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NotebookLMガイド OGP画像生成</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        .og-image {
+            width: 1200px;
+            height: 630px;
+            background: linear-gradient(135deg, #2563eb 0%, #10b981 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .og-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120"><defs><pattern id="dots" width="120" height="120" patternUnits="userSpaceOnUse"><circle cx="30" cy="30" r="2" fill="rgba(255,255,255,0.15)"/><circle cx="90" cy="90" r="2" fill="rgba(255,255,255,0.15)"/><circle cx="60" cy="15" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="15" cy="75" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="105" cy="45" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="105" r="1.5" fill="rgba(255,255,255,0.12)"/></pattern></defs><rect width="120" height="120" fill="url(%23dots)"/></svg>');
+            opacity: 0.4;
+        }
+        
+        .main-title {
+            font-size: 56px;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 15px;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            letter-spacing: -1px;
+            z-index: 2;
+            line-height: 1.1;
+        }
+        
+        .percentage {
+            font-size: 72px;
+            font-weight: 900;
+            color: #fbbf24;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.4);
+            margin: 0 10px;
+        }
+        
+        .sub-title {
+            font-size: 28px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.95);
+            margin-bottom: 35px;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            z-index: 2;
+        }
+        
+        .description {
+            font-size: 22px;
+            font-weight: 500;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 25px;
+            z-index: 2;
+        }
+        
+        .feature-container {
+            display: flex;
+            gap: 25px;
+            z-index: 2;
+            margin-bottom: 20px;
+        }
+        
+        .feature {
+            background: rgba(255,255,255,0.25);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .url {
+            position: absolute;
+            bottom: 35px;
+            right: 45px;
+            font-size: 18px;
+            color: rgba(255,255,255,0.75);
+            font-weight: 500;
+            z-index: 2;
+        }
+        
+        .logo {
+            position: absolute;
+            top: 35px;
+            left: 45px;
+            font-size: 26px;
+            color: rgba(255,255,255,0.85);
+            font-weight: 700;
+            z-index: 2;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="og-image">
+        <div class="logo">📚 NotebookLM</div>
+        
+        <div class="main-title">
+            NotebookLMを<span class="percentage">120%</span>活用！
+        </div>
+        <div class="sub-title">音声概要のカスタムプロンプト</div>
+        <div class="description">実践的な活用方法を完全網羅</div>
+        
+        <div class="feature-container">
+            <div class="feature">プロンプト例</div>
+            <div class="feature">活用シーン</div>
+            <div class="feature">制限事項</div>
+        </div>
+        
+        <div class="url">straingroove.github.io</div>
+    </div>
+</body>
+</html> 
