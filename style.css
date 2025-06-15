@@ -331,11 +331,28 @@ body {
 .prompt-text {
     background: #f8f9fa;
     border-left: 4px solid #007bff;
-    padding: 20px;
+    padding: 20px 60px 20px 20px; /* 右側にコピーボタン用の余白を追加 */
     border-radius: var(--border-radius);
     font-style: italic;
     line-height: 1.6;
     color: var(--text-secondary);
+    position: relative; /* コピーボタンの配置調整用 */
+}
+
+/* コピーボタンのスタイル調整 */
+.prompt-text .copy-btn,
+.prompt-text button {
+    position: absolute !important;
+    top: 10px !important;
+    right: 10px !important;
+    background: #007bff !important;
+    color: white !important;
+    border: none !important;
+    padding: 8px 12px !important;
+    border-radius: 6px !important;
+    font-size: 0.9rem !important;
+    cursor: pointer !important;
+    z-index: 10 !important;
 }
 
 /* Audio & Transcript Buttons */
