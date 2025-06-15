@@ -1,0 +1,15 @@
+theme: minima
+title: "NotebookLM実践例 - オードリー・タン講演プロンプト実験"
+description: "5つのプロンプトパターンによる生成音声の比較実験"
+
+markdown: kramdown
+highlighter: rouge
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# カスタムCSS
+sass:
+  sass_dir: _sass
+  style: compressed 

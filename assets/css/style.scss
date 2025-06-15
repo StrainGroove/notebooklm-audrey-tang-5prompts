@@ -1,0 +1,72 @@
+@import "minima";
+
+/* 話者スタイリング */
+strong {
+  &:contains("男性:") {
+    color: #2563eb;
+    font-weight: 700;
+    display: block;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  &:contains("女性:") {
+    color: #dc2626;
+    font-weight: 700;
+    display: block;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* 対話部分のスタイリング */
+p {
+  margin-bottom: 1rem;
+  line-height: 1.7;
+  
+  /* 話者の後の段落 */
+  strong + br + & {
+    padding-left: 1rem;
+    border-left: 3px solid #e5e7eb;
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* ページ全体のスタイリング */
+.page-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* ヘッダースタイリング */
+h1, h2 {
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #6366f1;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .page-content {
+    padding: 1rem 0.5rem;
+  }
+  
+  h1 {
+    font-size: 1.5rem;
+  }
+  
+  h2 {
+    font-size: 1.25rem;
+  }
+} 
